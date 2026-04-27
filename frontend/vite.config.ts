@@ -142,6 +142,16 @@ export default defineConfig({
             return undefined
           }
 
+          // Keep the React runtime in a single chunk to avoid circular
+          // dependencies between manually split vendor bundles in production.
+          if (
+            id.includes('react') ||
+            id.includes('react-dom') ||
+            id.includes('scheduler')
+          ) {
+            return 'vendor-react'
+          }
+
           if (id.includes('react-router')) {
             return 'vendor-router'
           }
@@ -149,10 +159,6 @@ export default defineConfig({
           const antdGroup = matchAntdGroup(id)
           if (antdGroup) {
             return antdGroup
-          }
-
-          if (id.includes('react') || id.includes('scheduler')) {
-            return 'vendor-react'
           }
 
           if (id.includes('echarts')) {
