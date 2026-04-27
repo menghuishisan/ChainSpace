@@ -1,0 +1,1 @@
+import{g as a,d as t,p as l,k as s}from"./index-BGiN8dHJ.js";function u(e){return a("/challenges",e)}function g(e){return l("/challenges",e)}function c(e,n){return s(`/challenges/${e}`,n)}function h(e){return t(`/challenges/${e}`)}function o(e,n){return l(`/challenges/${e}/publish-request`,{reason:n})}export{g as c,h as d,u as g,o as r,c as u};

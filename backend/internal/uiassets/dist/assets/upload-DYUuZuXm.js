@@ -1,0 +1,1 @@
+import{l as a}from"./index-BGiN8dHJ.js";function o(e,t,r){return a(`/upload/courses/${e}/chapters/${t}/materials`,r,"material")}function p(e){return a("/upload/experiments/assets",e,"experiment-asset")}export{o as a,p as u};

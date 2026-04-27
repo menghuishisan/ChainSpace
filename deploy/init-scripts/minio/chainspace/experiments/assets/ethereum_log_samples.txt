@@ -1,0 +1,3 @@
+{"block_number":19023391,"tx_hash":"0x4ecf315244e5342335d17db7689df7b74dd0f40e4a9719b8db6a9f65b04491a1","address":"0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48","topic0":"0xddf252ad","gas_used":58234,"status":"success"}
+{"block_number":19023392,"tx_hash":"0xcaa3fbeea39a807ba090a6a20cd35606d90e6fa8c3f56e9b07f11fdb738d1022","address":"0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2","topic0":"0x8c5be1e5","gas_used":112402,"status":"success"}
+{"block_number":19023393,"tx_hash":"0x13f70390fc6c6d45ea5a4922750fd5ea9f6c9eb5a8f16612da45ca2ecb2a0f33","address":"0x6B175474E89094C44Da98b954EedeAC495271d0F","topic0":"0xddf252ad","gas_used":139921,"status":"revert"}

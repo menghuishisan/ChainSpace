@@ -1,0 +1,70 @@
+# Dependencies
+node_modules/
+vendor/
+
+# Build outputs
+dist/
+build/
+bin/
+*.exe
+*.dll
+*.so
+*.dylib
+release/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Environment
+.env
+.env.local
+.env.*.local
+*.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test
+coverage/
+*.test
+*.out
+
+# Temp
+tmp/
+temp/
+*.tmp
+.gocache/
+
+# Backend specific
+backend/configs/config.yaml
+!backend/configs/config.example.yaml
+!backend/configs/config.desktop.yaml
+backend/internal/uiassets/dist/
+!backend/internal/uiassets/dist/
+!backend/internal/uiassets/dist/index.html
+
+# Frontend specific
+frontend/.cache/
+
+# Docker
+*.tar
+
+# Kubernetes secrets
+deploy/k8s/*-secret.yaml
+
+# Local AI / design docs that should not be published
+.cursorrules
+AGENTS.md
+docs/
+**/*.md
+!/README.md

@@ -1,0 +1,6 @@
+export { default as StudentCourseLearnTab } from './StudentCourseLearnTab'
+export { default as StudentCourseExperimentsTab } from './StudentCourseExperimentsTab'
+export { default as TeacherChapterMaterials } from './TeacherChapterMaterials'
+export { default as TeacherCourseContentTab } from './TeacherCourseContentTab'
+export { default as TeacherCourseExperimentsTab } from './TeacherCourseExperimentsTab'
+export { default as TeacherCourseStudentsTab } from './TeacherCourseStudentsTab'

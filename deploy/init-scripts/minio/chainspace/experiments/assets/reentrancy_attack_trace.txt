@@ -1,0 +1,11 @@
+{
+  "case": "dex-withdraw-reentrancy",
+  "chain": "sepolia-lab",
+  "tx_hash": "0x0e13d33e3a18f11fe2de4cde5be5b8a0a8d4f04d53b7e1f0dd34b3d350f0aa19",
+  "call_trace": [
+    {"depth": 0, "contract": "DexVault", "method": "withdraw(uint256)", "gas_used": 52318},
+    {"depth": 1, "contract": "Attacker", "method": "receive()", "gas_used": 12013},
+    {"depth": 2, "contract": "DexVault", "method": "withdraw(uint256)", "gas_used": 41755}
+  ],
+  "risk_signal": "state update after external call"
+}

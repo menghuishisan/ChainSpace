@@ -1,0 +1,1 @@
+import{g as t,p as n}from"./index-BGiN8dHJ.js";function r(s,i){return n("/submissions",{...i,experiment_id:s})}function o(s){return t("/submissions",s)}function u(s,i){return n(`/submissions/${s}/grade`,i)}export{u as a,o as g,r as s};

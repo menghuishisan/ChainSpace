@@ -1,0 +1,26 @@
+/**
+ * 可视化组件统一导出。
+ * 各个教学画布都通过 SimulationWrapper 接收模拟器状态。
+ */
+export { default as SimulationWrapper } from './SimulationWrapper'
+export { default as ConsensusCanvas } from './ConsensusCanvas'
+export { default as ConsensusBftScene } from './ConsensusBftScene'
+export { default as ConsensusLeaderScene } from './ConsensusLeaderScene'
+export { default as ConsensusCommitteeScene } from './ConsensusCommitteeScene'
+export { default as ConsensusMiningScene } from './ConsensusMiningScene'
+export { default as ConsensusDagScene } from './ConsensusDagScene'
+export { default as AttackCanvas } from './AttackCanvas'
+export { default as AttackExecutionScene } from './AttackExecutionScene'
+export { default as AttackEconomicScene } from './AttackEconomicScene'
+export { default as AttackConsensusScene } from './AttackConsensusScene'
+export { default as AttackBridgeScene } from './AttackBridgeScene'
+export { default as BlockchainCanvas } from './BlockchainCanvas'
+export { default as NetworkCanvas } from './NetworkCanvas'
+export { default as CryptoCanvas } from './CryptoCanvas'
+export { default as CrossChainCanvas } from './CrossChainCanvas'
+export { default as EVMCanvas } from './EVMCanvas'
+export { default as DeFiCanvas } from './DeFiCanvas'
+export { default as DisturbanceOverlayPanel } from './DisturbanceOverlayPanel'
+export { default as SummaryMetricCard } from './SummaryMetricCard'
+export { default as SummaryValueCard } from './SummaryValueCard'
+export { default as ContractStatusCard } from './ContractStatusCard'

@@ -1,0 +1,146 @@
+server:
+  port: 3000
+  mode: release
+  read_timeout: 180s
+  write_timeout: 180s
+  shutdown_timeout: 10s
+
+database:
+  host: localhost
+  port: 5433
+  user: chainspace
+  password: 123456
+  name: chainspace
+  sslmode: disable
+  timezone: Asia/Shanghai
+  max_idle_conns: 10
+  max_open_conns: 100
+  conn_max_lifetime: 1h
+  log_level: silent
+
+redis:
+  host: localhost
+  port: 6381
+  password: chainspace123
+  db: 0
+  pool_size: 100
+  min_idle_conns: 10
+
+jwt:
+  secret: f8b7a9d3e5c8b1f9e7d2c4a8b9f7e6d5c3b8a9e7f8d6c5b4a7f9e8d7c6b5a8f9
+  access_expire: 15m
+  refresh_expire: 168h
+  issuer: chainspace
+
+minio:
+  endpoint: localhost:9000
+  access_key: chainspace
+  secret_key: chainspace123
+  bucket: chainspace
+  use_ssl: false
+  region: cn-north-1
+  public_url: http://localhost:9000
+
+rabbitmq:
+  host: localhost
+  port: 5672
+  user: chainspace
+  password: chainspace123
+  vhost: /
+
+kubernetes:
+  enabled: false
+  in_cluster: false
+  kubeconfig: ""
+  namespace: chainspace-labs
+  image_registry: registry.chainspace.com
+  image_pull_secret: chainspace-registry
+  default_timeout: 4h
+  max_timeout: 24h
+  resource_defaults:
+    cpu_request: "0.5"
+    cpu_limit: "2"
+    memory_request: "512Mi"
+    memory_limit: "4Gi"
+    storage: "10Gi"
+
+log:
+  level: info
+  format: console
+  output: stdout
+  file_path: ./logs/app.log
+  max_size: 100
+  max_backups: 10
+  max_age: 30
+  compress: true
+
+cors:
+  allowed_origins:
+    - http://127.0.0.1:3000
+    - http://localhost:3000
+  allowed_methods:
+    - GET
+    - POST
+    - PUT
+    - DELETE
+    - PATCH
+    - OPTIONS
+  allowed_headers:
+    - Origin
+    - Content-Type
+    - Accept
+    - Authorization
+    - X-Requested-With
+  exposed_headers:
+    - Content-Length
+    - Content-Type
+  allow_credentials: true
+  max_age: 12h
+
+rate_limit:
+  enabled: true
+  requests_per_second: 100
+  burst: 200
+
+experiment:
+  default_timeout: 4h
+  max_extend_times: 3
+  extend_duration: 2h
+  snapshot_before_timeout: 10m
+  cleanup_interval: 5m
+  max_user_envs: 3
+  max_school_envs: 100
+
+contest:
+  flag_prefix: "flag{"
+  flag_suffix: "}"
+  dynamic_flag_salt: chainspace-flag-salt
+  max_team_size: 5
+  scoreboard_freeze_before: 1h
+
+upload:
+  max_size: 100
+  allowed_types:
+    - image/jpeg
+    - image/png
+    - image/gif
+    - application/pdf
+    - application/zip
+    - text/plain
+    - text/markdown
+  temp_dir: ./tmp/uploads
+
+init:
+  admin_phone: 13800000001
+  admin_name: 平台管理员
+  admin_password: Admin@123456
+  admin_email: admin@chainspace.com
+
+etherscan:
+  api_key: "NVZ7H7CHA89D8YGXVUZIQ9153XXPPIFBUP"
+
+proxy:
+  enabled: false
+  http: ""
+  https: ""
+  no_proxy: "localhost,127.0.0.1"

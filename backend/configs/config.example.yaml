@@ -1,0 +1,185 @@
+# ============================================
+# 服务器配置
+# ============================================
+server:
+  port: 3000                    # 服务端口
+  mode: debug                   # 运行模式: debug/release
+  read_timeout: 180s            # 读取超时（漏洞增强等长请求）
+  write_timeout: 180s         # 写入超时
+  shutdown_timeout: 10s         # 优雅关闭超时
+
+# ============================================
+# 数据库配置
+# ============================================
+database:
+  host: localhost               # 数据库主机
+  port: 5432                    # 数据库端口
+  user: chainspace              # 用户名
+  password: 123456              # 密码
+  name: chainspace              # 数据库名
+  sslmode: disable              # SSL 模式
+  timezone: Asia/Shanghai       # 时区
+  max_idle_conns: 10            # 最大空闲连接数
+  max_open_conns: 100           # 最大打开连接数
+  conn_max_lifetime: 1h         # 连接最大生命周期
+  log_level: silent             # 日志级别: silent/error/warn/info
+
+# ============================================
+# Redis 配置
+# ============================================
+redis:
+  host: localhost               # Redis 主机
+  port: 6381                    # Redis 端口
+  password: chainspace123       # 密码（空字符串表示无密码）
+  db: 0                         # 数据库索引
+  pool_size: 100                # 连接池大小
+  min_idle_conns: 10            # 最小空闲连接数
+
+# ============================================
+# JWT 配置
+# ============================================
+jwt:
+  secret: f8b7a9d3e5c8b1f9e7d2c4a8b9f7e6d5c3b8a9e7f8d6c5b4a7f9e8d7c6b5a8f9  # JWT 密钥（生产环境必须修改）
+  access_expire: 15m            # Access Token 过期时间
+  refresh_expire: 168h          # Refresh Token 过期时间（7 天）
+  issuer: chainspace            # 签发者
+
+# ============================================
+# MinIO 对象存储配置
+# ============================================
+minio:
+  endpoint: localhost:9000      # MinIO 端点
+  access_key: chainspace        # Access Key
+  secret_key: chainspace123     # Secret Key
+  bucket: chainspace            # 存储桶名称
+  use_ssl: false                # 是否使用 SSL
+  region: cn-north-1            # 区域
+  public_url: http://localhost:9000  # 公开访问 URL
+
+# ============================================
+# RabbitMQ 消息队列配置
+# ============================================
+rabbitmq:
+  host: localhost               # RabbitMQ 主机
+  port: 5672                    # RabbitMQ 端口
+  user: chainspace              # 用户名
+  password: chainspace123       # 密码
+  vhost: /                      # 虚拟主机
+
+# ============================================
+# Kubernetes 配置
+# ============================================
+kubernetes:
+  enabled: true                 # 是否启用 K8s
+  in_cluster: true              # 是否在集群内运行
+  kubeconfig: ~/.kube/config    # kubeconfig 路径（集群外运行时使用）
+  namespace: chainspace-labs    # 实验环境命名空间
+  image_registry: registry.chainspace.com  # 镜像仓库地址
+  image_pull_secret: chainspace-registry   # 镜像拉取密钥
+  default_timeout: 4h           # 默认实验超时时间
+  max_timeout: 24h              # 最大实验超时时间
+  resource_defaults:            # 默认资源配置
+    cpu_request: "0.5"
+    cpu_limit: "2"
+    memory_request: "512Mi"
+    memory_limit: "4Gi"
+    storage: "10Gi"
+
+# ============================================
+# 日志配置
+# ============================================
+log:
+  level: info                   # 日志级别: debug/info/warn/error
+  format: json                  # 输出格式: console/json
+  output: file                  # 输出目标: stdout/file
+  file_path: ./logs/app.log     # 日志文件路径
+  max_size: 100                 # 单个日志文件最大大小（MB）
+  max_backups: 10               # 最大备份数量
+  max_age: 30                   # 最大保留天数
+  compress: true                # 是否压缩
+
+# ============================================
+# 跨域配置
+# ============================================
+cors:
+  allowed_origins:              # 允许的源
+    - http://localhost:5173
+    - http://localhost:5174
+  allowed_methods:              # 允许的方法
+    - GET
+    - POST
+    - PUT
+    - DELETE
+    - PATCH
+    - OPTIONS
+  allowed_headers:              # 允许的请求头
+    - Origin
+    - Content-Type
+    - Accept
+    - Authorization
+    - X-Requested-With
+  exposed_headers:              # 暴露的响应头
+    - Content-Length
+    - Content-Type
+  allow_credentials: true       # 是否允许凭证
+  max_age: 12h                  # 预检请求缓存时间
+
+# ============================================
+# 限流配置
+# ============================================
+rate_limit:
+  enabled: true                 # 是否启用限流
+  requests_per_second: 100      # 每秒请求数
+  burst: 200                    # 突发容量
+
+# ============================================
+# 实验环境配置
+# ============================================
+experiment:
+  default_timeout: 4h           # 默认超时时间
+  max_extend_times: 3           # 最大延期次数
+  extend_duration: 2h           # 每次延期时长
+  snapshot_before_timeout: 10m  # 超时前多久保存快照
+  cleanup_interval: 5m          # 清理检查间隔
+  max_user_envs: 3              # 每个用户最大并发环境数
+  max_school_envs: 100          # 每个学校最大并发环境数
+
+# ============================================
+# CTF 竞赛配置
+# ============================================
+contest:
+  flag_prefix: "flag{"          # Flag 前缀
+  flag_suffix: "}"              # Flag 后缀
+  dynamic_flag_salt: your-flag-salt-change-in-production  # 动态 Flag 盐值
+  max_team_size: 5              # 最大队伍人数
+  scoreboard_freeze_before: 1h  # 结束前多久冻结排行榜
+
+# ============================================
+# 文件上传配置
+# ============================================
+upload:
+  max_size: 100                 # 最大文件大小（MB）
+  allowed_types:                # 允许的文件类型
+    - image/jpeg
+    - image/png
+    - image/gif
+    - application/pdf
+    - application/zip
+    - text/plain
+    - text/markdown
+  temp_dir: ./tmp/uploads       # 临时上传目录
+
+# ============================================
+# 平台初始化配置
+# ============================================
+init:
+  admin_phone: 13800000001      # 初始管理员手机号
+  admin_name: 平台管理员         # 初始管理员姓名
+  admin_password: Admin@123456  # 初始管理员密码
+  admin_email: admin@chainspace.com  # 初始管理员邮箱
+
+# ============================================
+# Etherscan API 配置
+# ============================================
+etherscan:
+  api_key: "NVZ7H7CHA89D8YGXVUZIQ9153XXPPIFBUP"  # Etherscan API Key

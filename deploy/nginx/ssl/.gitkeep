@@ -1,0 +1,6 @@
+# SSL 证书目录
+# 请将 chainspace.crt 和 chainspace.key 放置于此目录
+# 开发环境可使用自签名证书:
+# openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+#   -keyout chainspace.key -out chainspace.crt \
+#   -subj "/CN=localhost"

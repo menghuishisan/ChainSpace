@@ -1,0 +1,27 @@
+{
+  "topology": "mesh-validators",
+  "nodes": ["peer-a", "peer-b", "observer"],
+  "events": [
+    {
+      "time": "2026-03-11T10:25:00Z",
+      "event": "latency_spike",
+      "from": "peer-a",
+      "to": "peer-b",
+      "rtt_ms": 480
+    },
+    {
+      "time": "2026-03-11T10:25:15Z",
+      "event": "packet_loss",
+      "from": "peer-b",
+      "to": "observer",
+      "loss_rate": 0.23
+    },
+    {
+      "time": "2026-03-11T10:25:45Z",
+      "event": "recovery",
+      "from": "peer-a",
+      "to": "peer-b",
+      "rtt_ms": 42
+    }
+  ]
+}

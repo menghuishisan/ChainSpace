@@ -1,0 +1,249 @@
+/**
+ * 链境 ChainSpace 全局样式
+ * 包含 TailwindCSS 和自定义样式
+ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ====== 全局基础样式 ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+}
+
+/* ====== 全局背景渐变 - 浅蓝到白 ====== */
+.bg-gradient-main {
+  background: linear-gradient(180deg, #F0F7FF 0%, #FFFFFF 50%, #FFFFFF 100%);
+  min-height: 100vh;
+}
+
+/* 登录页背景渐变 */
+.bg-gradient-login {
+  background: linear-gradient(135deg, #E8F4FC 0%, #FFFFFF 100%);
+  min-height: 100vh;
+}
+
+/* ====== 卡片样式 ====== */
+.card {
+  background: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 24px;
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* ====== 滚动条美化 ====== */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* ====== 动画效果 ====== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* 轻微浮动动画 - 用于装饰元素/图标 */
+@keyframes floatUp {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+.float-soft {
+  animation: floatUp 3s ease-in-out infinite;
+}
+
+/* 呼吸光晕 - 用于状态点 */
+@keyframes glowPulse {
+  0% { box-shadow: 0 0 0 0 rgba(24, 144, 255, 0.4); }
+  70% { box-shadow: 0 0 0 12px rgba(24, 144, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(24, 144, 255, 0); }
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  display: inline-block;
+  background: #52c41a;
+  animation: glowPulse 2.4s ease-out infinite;
+}
+
+/* 渐变慢移动背景 - 用于顶部条/卡片装饰 */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.gradient-animated {
+  background: linear-gradient(120deg, rgba(24, 144, 255, 0.16), rgba(114, 46, 209, 0.18), rgba(82, 196, 26, 0.16));
+  background-size: 200% 200%;
+  animation: gradientShift 12s ease infinite;
+}
+
+/* 玻璃拟态卡片 - 登录等重点区域 */
+.glass-card {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* 顶部条描边渐变 - 用于可视化工具栏 */
+.topbar-accent {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.menu-compact .ant-menu-item,
+.menu-compact .ant-menu-submenu-title {
+  height: 42px !important;
+  line-height: 42px !important;
+}
+
+.menu-compact .ant-menu-item-selected {
+  background: linear-gradient(90deg, rgba(24, 144, 255, 0.08), rgba(82, 196, 26, 0.08));
+  border-radius: 8px;
+}
+
+.menu-compact .ant-menu-item-selected::after {
+  display: none;
+}
+
+/* ====== Ant Design 覆盖样式 ====== */
+/* 侧边栏菜单样式 */
+.ant-layout-sider {
+  background: #fff !important;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.ant-menu {
+  border-inline-end: none !important;
+}
+
+/* 表格样式 */
+.ant-table-wrapper .ant-table-thead > tr > th {
+  background: #fafafa;
+}
+
+/* ====== 工具类 ====== */
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  line-clamp: 2;
+  overflow: hidden;
+}
+
+/* ====== 实验环境样式 ====== */
+/* 终端样式 */
+.xterm-container {
+  padding: 8px;
+  background: #1e1e1e;
+  border-radius: 4px;
+}
+
+/* 代码编辑器容器 */
+.monaco-editor-container {
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* 可视化实验右侧参数栏在深色背景下需要更高对比度，避免说明和日志难以辨认。 */
+.simulation-sidebar .ant-card {
+  background: #0f172a !important;
+  border: 1px solid #475569 !important;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.22);
+}
+
+.simulation-sidebar .ant-card .ant-card-head {
+  background: #1e293b !important;
+  border-bottom: 1px solid #475569 !important;
+}
+
+.simulation-sidebar .ant-card .ant-card-head-title {
+  color: #f8fafc !important;
+}
+
+.simulation-sidebar .ant-card .ant-card-body {
+  color: #f8fafc !important;
+}
+
+.simulation-sidebar label,
+.simulation-sidebar .ant-descriptions-item-label,
+.simulation-sidebar .ant-descriptions-item-label > span,
+.simulation-sidebar .text-text-secondary {
+  color: #cbd5e1 !important;
+}
+
+.simulation-sidebar .ant-descriptions-item-content,
+.simulation-sidebar .ant-descriptions-item-content > span,
+.simulation-sidebar .ant-card-body .font-mono,
+.simulation-sidebar .ant-card-body .text-white {
+  color: #f8fafc !important;
+}
+
+.simulation-sidebar .ant-card-body .border-b {
+  border-color: #334155 !important;
+}
+
+/* ====== 响应式隐藏类 ====== */
+@media (max-width: 768px) {
+  .hide-on-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .hide-on-desktop {
+    display: none !important;
+  }
+}

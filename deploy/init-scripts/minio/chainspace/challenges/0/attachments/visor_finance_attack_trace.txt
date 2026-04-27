@@ -1,0 +1,26 @@
+{
+  "chain": "ethereum",
+  "fork_block": 13654410,
+  "target_tx_hash": "0x69272d8c84d67d1da2f6425b339192fa472898dce936f24818fda415c1c1ff3f",
+  "target_contract": "0xC9f27A50f82571C1C8423A42970613b8dBDA14ef",
+  "steps": [
+    {
+      "index": 1,
+      "action": "enter_withdraw",
+      "gas_used": 88431,
+      "note": "external call before state settlement"
+    },
+    {
+      "index": 2,
+      "action": "fallback_reenter",
+      "gas_used": 44217,
+      "note": "reentry path opens repeated withdrawal"
+    },
+    {
+      "index": 3,
+      "action": "final_drain",
+      "gas_used": 62440,
+      "note": "net loss observed in pool accounting"
+    }
+  ]
+}

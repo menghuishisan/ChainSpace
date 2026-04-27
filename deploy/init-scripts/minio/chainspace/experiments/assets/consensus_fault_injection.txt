@@ -1,0 +1,22 @@
+{
+  "scenario": "pbft_fault_injection_weekly_lab",
+  "network": "3-validator + 1-observer",
+  "fault_windows": [
+    {
+      "epoch": 12,
+      "fault_type": "leader_crash",
+      "target_node": "peer-a",
+      "duration_seconds": 30
+    },
+    {
+      "epoch": 14,
+      "fault_type": "network_partition",
+      "target_node": "peer-b",
+      "duration_seconds": 45
+    }
+  ],
+  "expected": {
+    "max_view_change_count": 2,
+    "block_finalize_delay_ms_p95": 1800
+  }
+}

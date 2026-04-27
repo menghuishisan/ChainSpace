@@ -1,0 +1,78 @@
+/**
+ * 可视化事件标签表。
+ * 统一维护教学事件的中文说明，避免不同画布各自维护一套命名。
+ */
+const EVENT_LABELS: Record<string, string> = {
+  idle: '等待新的实验操作',
+  running: '模拟器正在自动推进',
+  client_request: '客户端发起新请求',
+  pre_prepare: '主节点广播预准备消息',
+  prepare: '副本节点确认提案内容',
+  commit: '副本节点广播提交确认',
+  committed: '请求完成并返回结果',
+  view_change: '触发视图切换',
+  fault_injected: '注入故障或拜占庭行为',
+  request_vote: '候选者请求集群投票',
+  election_started: '开始新一轮选主',
+  vote_response: '节点返回投票结果',
+  leader_elected: '新的领导者已确认',
+  append_entries: '领导者复制日志并维持心跳',
+  command_submitted: '客户端命令写入领导者日志',
+  node_status_changed: '节点在线状态发生变化',
+  attack_started: '开始执行重入攻击',
+  attack_completed: '攻击流程执行完毕',
+  secure_withdraw_completed: '切换到安全提现流程',
+  swap_executed: '执行一笔 AMM 兑换',
+  liquidity_added: '向资金池添加流动性',
+  liquidity_removed: '从资金池移除流动性',
+  field_changed: '修改区块字段并重新计算哈希',
+  transaction_added: '向当前区块添加交易',
+  block_mined: '找到满足难度的区块哈希',
+  difficulty_increased: '网络难度提高',
+  difficulty_decreased: '网络难度降低',
+  '51_attack_started': '检测到 51% 攻击场景',
+  selfish_mining_enabled: '自私挖矿策略已开启',
+  selfish_mining_hidden: '隐藏区块正在累积',
+  block_proposed: '提议者广播新区块',
+  block_finalized: '区块完成最终确认',
+  epoch_transition: '系统切换到新的 Epoch',
+  validator_slashed: '违规验证者已被惩罚',
+  vote_cast: '投票权重已提交',
+  delegates_elected: '活跃委托者已确定',
+  block_produced: '当前轮值节点已出块',
+  block_missed: '轮值节点错过出块窗口',
+  propose: '领导者发起本轮提案',
+  vote_received: '领导者收到新的投票',
+  prepare_qc_formed: 'Prepare QC 已形成',
+  precommit_qc_formed: 'Precommit QC 已形成',
+  commit_qc_formed: 'Commit QC 已形成',
+  block_committed: '区块已经正式提交',
+  leader_rotated: '领导者已轮换',
+  prevote: '验证者广播 Prevote',
+  precommit: '验证者广播 Precommit',
+  new_round: '系统进入新一轮',
+  vertex_created: '新的 DAG 顶点已创建',
+  vertex_confirmed: '顶点已进入确认态',
+  node_selected: 'VRF 已选出候选者',
+  election_complete: '本轮抽签已经完成',
+  block_created: '新的候选区块已产生',
+  fork_created: '网络已形成分叉',
+  chain_reorg: '主链已经完成重组',
+  hash_computed: '完成一次哈希计算',
+  hash_multiple: '完成多算法摘要对比',
+  avalanche_demo: '演示雪崩效应',
+  integrity_verified: '完成完整性校验',
+  bridge_initiated: '源链已发起跨链请求',
+  bridge_confirmed: '源链确认数已满足',
+  bridge_signed: '验证者已完成签名确认',
+  bridge_completed: '目标链已完成执行',
+  trace_complete: '生成一条完整调用跟踪',
+}
+
+export function getVisualizationEventLabel(type: string): string {
+  return EVENT_LABELS[type] || type
+}
+
+export function isSystemVisualizationEvent(type: string): boolean {
+  return type.startsWith('engine.')
+}
